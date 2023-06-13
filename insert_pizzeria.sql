@@ -27,7 +27,7 @@ insert into
 values 
 	('RENAULT CAMPUS'),
 	('T MAX'),
-    ('Byciclette');
+    ('Bicyclette');
     
 insert into 
 	format (NomFormat, Multiple) 
