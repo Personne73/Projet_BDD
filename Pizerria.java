@@ -1,4 +1,3 @@
-package projet;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -20,7 +19,7 @@ public class Pizerria
         	
             String url = "jdbc:mysql://localhost:3306/cours";
             String utilisateur = "root";
-            String motDePasse = "25Az@11_Ra20";
+            String motDePasse = "root";
 
             Connection cx = DriverManager.getConnection(url, utilisateur, motDePasse);
 
@@ -48,39 +47,39 @@ public class Pizerria
             		+ " inner join ingredient on contenir.Id_Ingredient = ingredient.Id_Ingredient"
             		+ " where pizza.Nom = ?;" );
             
-            	
-            	
-                ResultSet result = pizzaEtPrix.executeQuery();
-                String nom = new String();
-                String prix = new String();
-                System.out.println("||       Nom Pizza        ||        Prix        ||                Ingredients                 ||");
-                System.out.println("||                        ||                    ||                                            ||");
-                while(result.next()) {
-                	
-                	nom = result.getString("Nom");
-                	prix = result.getString("Prix");
-                	System.out.print("||      " + nom + " " + prix + " ");
-                	
-                	ingredientsPizza.setString( 1, nom);
-                	ResultSet result2 = ingredientsPizza.executeQuery();
-                	while(result2.next()) {
-                		System.out.print(result2.getString("Nom") + " ");
-                	}
-                	
-                    System.out.println("");
+            
+            
+            ResultSet result = pizzaEtPrix.executeQuery();
+            String nom = new String();
+            String prix = new String();
+            System.out.println("||       Nom Pizza        ||        Prix        ||                Ingredients                 ||");
+            System.out.println("||                        ||                    ||                                            ||");
+            while(result.next()) {
+                
+                nom = result.getString("Nom");
+                prix = result.getString("Prix");
+                System.out.print("||      " + nom + " " + prix + " ");
+                
+                ingredientsPizza.setString( 1, nom);
+                ResultSet result2 = ingredientsPizza.executeQuery();
+                while(result2.next()) {
+                    System.out.print(result2.getString("Nom") + " ");
                 }
                 
+                System.out.println("");
+            }
                 
                 
-                /*
-                ingredientsPizza.setString( 1, result.getString("Nom"));
-            	ResultSet result2 = ingredientsPizza.executeQuery();
-            	while(result.next()) {
-            		System.out.print(result.getString("Nom") + " ");
-            	}
-            	
-                System.out.println("fin");
-                */
+                
+            /*
+            ingredientsPizza.setString( 1, result.getString("Nom"));
+            ResultSet result2 = ingredientsPizza.executeQuery();
+            while(result.next()) {
+                System.out.print(result.getString("Nom") + " ");
+            }
+            
+            System.out.println("fin");
+            */
    
         }
         catch(SQLException ex)
