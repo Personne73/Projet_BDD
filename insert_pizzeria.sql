@@ -27,7 +27,7 @@ INSERT INTO
 VALUES
 	('RENAULT CAMPUS'),
 	('T MAX'),
-    ('Byciclette');
+    ('Bicyclette');
     
 INSERT INTO
 	FORMAT (NomFormat, Multiple)
