@@ -4,16 +4,16 @@
 # 3) Contenir
 # 4) Commande
 
-insert into 
-	Compte (Solde, NbPizzaAchete) 
-values 
+INSERT INTO
+	COMPTE (Solde, NbPizzaAchete)
+VALUES
 	(50.6, 16),
 	(28, 2),
     (38, 54);
 
-insert into 
-	ingredient (Nom) 
-values 
+INSERT INTO
+	INGREDIENT (Nom)
+VALUES
 	('Sauce tomate'),        #0
 	('Mozza'),               #1
     ('Olive'),               #2
@@ -22,23 +22,23 @@ values
     ('Champignon'),          #5
     ('Mélange de fromages'); #6
     
-insert into 
-	vehicule (Nom) 
-values 
+INSERT INTO
+	VEHICULE (Nom)
+VALUES
 	('RENAULT CAMPUS'),
 	('T MAX'),
     ('Byciclette');
     
-insert into 
-	format (NomFormat, Multiple) 
-values 
+INSERT INTO
+	FORMAT (NomFormat, Multiple)
+VALUES
 	('Naine', 0.77777),
 	('Humaine', 1),
     ('ogresse', 1.3333);
     
-insert into 
-	Livreur (Nom) 
-values 
+INSERT INTO
+	LIVREUR (Nom)
+VALUES
 	('Bob'),
 	('Henri'),
     ('Joël');
