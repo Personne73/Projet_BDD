@@ -17,7 +17,7 @@ public class Pizerria
         }
         try {
         	
-            String url = "jdbc:mysql://localhost:3306/cours";
+            String url = "jdbc:mysql://localhost:3306/pizzeria";
             String utilisateur = "root";
             String motDePasse = "root";
 
