@@ -32,8 +32,8 @@ VALUES
 INSERT INTO
 	FORMAT (NomFormat, Multiple)
 VALUES
-	('Naine', 0.77777),
-	('Humaine', 1),
+	('naine', 0.77777),
+	('humaine', 1),
     ('ogresse', 1.3333);
     
 INSERT INTO
