@@ -17,41 +17,37 @@ public class Pizerria
 
     }
 
-    private static void affichageStatistiques() {
-        try {
-            // Quels sont les véhicules n’ayant jamais servi ?
-            String sql1 = "SELECT * FROM VEHICULE WHERE Id_Vehicule NOT IN (SELECT DISTINCT Id_Vehicule FROM COMMANDE)";
-            Statement statement1 = cx.createStatement();
-            ResultSet resultSet1 = statement1.executeQuery(sql1);
-            while (resultSet1.next()) {
-                System.out.println("Véhicule n'ayant jamais servi : " + resultSet1.getString("Nom"));
-            }
+    private static void affichageStatistiques() throws Exception{
+        // Quels sont les véhicules n’ayant jamais servi ?
+        String sql1 = "SELECT * FROM VEHICULE WHERE Id_Vehicule NOT IN (SELECT DISTINCT Id_Vehicule FROM COMMANDE)";
+        Statement statement1 = cx.createStatement();
+        ResultSet resultSet1 = statement1.executeQuery(sql1);
+        while (resultSet1.next()) {
+            System.out.println("Véhicule n'ayant jamais servi : " + resultSet1.getString("Nom"));
+        }
 
-            // Calcul du nombre de commandes par client
-            String sql2 = "SELECT Id_Client, COUNT(*) as nb_commandes FROM COMMANDE GROUP BY Id_Client";
-            Statement statement2 = cx.createStatement();
-            ResultSet resultSet2 = statement2.executeQuery(sql2);
-            while (resultSet2.next()) {
-                System.out.println("Client ID: " + resultSet2.getInt("Id_Client") + ", nombre de commandes: " + resultSet2.getInt("nb_commandes"));
-            }
+        // Calcul du nombre de commandes par client
+        String sql2 = "SELECT Id_Client, COUNT(*) as nb_commandes FROM COMMANDE GROUP BY Id_Client";
+        Statement statement2 = cx.createStatement();
+        ResultSet resultSet2 = statement2.executeQuery(sql2);
+        while (resultSet2.next()) {
+            System.out.println("Client ID: " + resultSet2.getInt("Id_Client") + ", nombre de commandes: " + resultSet2.getInt("nb_commandes"));
+        }
 
-            // Calcul de la moyenne des commandes
-            String sql3 = "SELECT AVG(Prix_total) as moyenne FROM COMMANDE";
-            Statement statement3 = cx.createStatement();
-            ResultSet resultSet3 = statement3.executeQuery(sql3);
-            if (resultSet3.next()) {
-                System.out.println("La moyenne des commandes est : " + resultSet3.getDouble("moyenne"));
-            }
+        // Calcul de la moyenne des commandes
+        String sql3 = "SELECT AVG(Prix_total) as moyenne FROM COMMANDE";
+        Statement statement3 = cx.createStatement();
+        ResultSet resultSet3 = statement3.executeQuery(sql3);
+        if (resultSet3.next()) {
+            System.out.println("La moyenne des commandes est : " + resultSet3.getDouble("moyenne"));
+        }
 
-            // Extraction des clients ayant commandé plus que la moyenne
-            String sql4 = "SELECT Id_Client FROM COMMANDE GROUP BY Id_Client HAVING AVG(Prix_total) > (SELECT AVG(Prix_total) FROM COMMANDE)";
-            Statement statement4 = cx.createStatement();
-            ResultSet resultSet4 = statement4.executeQuery(sql4);
-            while (resultSet4.next()) {
-                System.out.println("Client ID ayant commandé plus que la moyenne : " + resultSet4.getInt("Id_Client"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        // Extraction des clients ayant commandé plus que la moyenne
+        String sql4 = "SELECT Id_Client FROM COMMANDE GROUP BY Id_Client HAVING AVG(Prix_total) > (SELECT AVG(Prix_total) FROM COMMANDE)";
+        Statement statement4 = cx.createStatement();
+        ResultSet resultSet4 = statement4.executeQuery(sql4);
+        while (resultSet4.next()) {
+            System.out.println("Client ID ayant commandé plus que la moyenne : " + resultSet4.getInt("Id_Client"));
         }
     }
 
