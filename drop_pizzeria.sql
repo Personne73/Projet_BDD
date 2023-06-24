@@ -5,12 +5,13 @@
 # 4) Commande
 
 
-drop table commande;
+drop table Commande;
 drop table Contenir;
 drop table Pizza;
 drop table Client;
 drop table Livreur;
-drop table format;
-drop table vehicule;
-drop table ingredient;
-drop table compte;
+drop table Format;
+drop table Vehicule;
+drop table TypeVehicule;
+drop table Ingredient;
+drop table Compte;

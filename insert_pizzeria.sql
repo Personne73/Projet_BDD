@@ -5,39 +5,47 @@
 # 4) Commande
 
 INSERT INTO
-	COMPTE (Solde, NbPizzaAchete)
+	Compte (Solde, NbPizzaAchete)
 VALUES
 	(50.6, 16),
 	(28, 2),
     (38, 54);
 
 INSERT INTO
-	INGREDIENT (Nom)
+	Ingredient (Nom)
 VALUES
-	('Sauce tomate'),        #0
-	('Mozza'),               #1
-    ('Olive'),               #2
-    ('Anchoi'),              #3
-    ('Saumon'),              #4
-    ('Champignon'),          #5
-    ('Mélange de fromages'); #6
-    
+	('Sauce tomate'),        #1
+	('Mozza'),               #2
+    ('Olive'),               #3
+    ('Anchoi'),              #4
+    ('Saumon'),              #5
+    ('Champignon'),          #6
+    ('Mélange de fromages'); #7
+
 INSERT INTO
-	VEHICULE (Nom)
+	TypeVehicule (Nom)
 VALUES
-	('RENAULT CAMPUS'),
-	('T MAX'),
-    ('Bicyclette');
-    
+	('Moto'),
+	('Scooter'),
+    ('Voiture'),
+    ('Byciclette');
+
 INSERT INTO
-	FORMAT (NomFormat, Multiple)
+	Vehicule (Id_TypeVehicule, Nom)
 VALUES
-	('naine', 0.77777),
-	('humaine', 1),
-    ('ogresse', 1.3333);
-    
+	(3, 'RENAULT CAMPUS'),
+	(1, 'T MAX'),
+    (4, 'Bicyclette');
+
 INSERT INTO
-	LIVREUR (Nom)
+	Format (NomFormat, Multiple)
+VALUES
+	('Naine', 0.77777),
+	('Humaine', 1),
+    ('Ogresse', 1.3333);
+
+INSERT INTO
+	Livreur (Nom)
 VALUES
 	('Bob'),
 	('Henri'),

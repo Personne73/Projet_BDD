@@ -7,7 +7,7 @@ public class Pizerria
 
     public static String url = "jdbc:mysql://localhost:3306/pizzeria";
     public static String utilisateur = "root";
-    public static String motDePasse = "root";
+    public static String motDePasse = "#voidAdmin25";
 
     public static Connection cx;
 
@@ -159,9 +159,6 @@ public class Pizerria
         System.out.println("");
     }
 
-
-
-
     public static void main(String[] args) throws SQLException, Exception
     {
         try {
@@ -172,7 +169,7 @@ public class Pizerria
         }
         catch (ClassNotFoundException ex){
 
-            System.out.println ("Problème au chargement"+ex.toString());
+            System.out.println ("Problème au chargement " + ex.toString());
         }
         try {
 
@@ -238,7 +235,7 @@ public class Pizerria
 
         }
         catch(SQLException ex)
-        {  System.err.println("Erreur : "+ex); }
+        {  System.err.println("Erreur : " + ex); }
     }
 
 }
