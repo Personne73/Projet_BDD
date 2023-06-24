@@ -49,6 +49,10 @@ public class Pizerria
         while (resultSet4.next()) {
             System.out.println("Client ID ayant commandé plus que la moyenne : " + resultSet4.getInt("Id_Client"));
         }
+
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
     }
 
 
